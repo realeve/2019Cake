@@ -1,7 +1,8 @@
 <template>
   <div>
     <div class="checklist">
-      <group title="2019年是否继续沿用元祖蛋糕？">
+      <p class="title">2019年是否继续沿用元祖蛋糕？</p>
+      <group>
         <radio
           :options="options"
           v-model="answer"
@@ -136,16 +137,23 @@ export default {
 };
 </script>
 <style scoped lang="less">
-.submit {
-  margin: 20px;
-}
+.checklist {
+  .submit {
+    margin: 20px;
+  }
 
-.demo1-item-selected {
-  border: 1px solid #ff402c !important;
-}
-.demo1-item {
-  border: 1px solid #ececec;
-  padding: 5px 15px;
-  margin: 3px;
+  .demo1-item-selected {
+    border: 1px solid #ff402c !important;
+  }
+  .demo1-item {
+    border: 1px solid #b2b2b2;
+    padding: 5px 15px;
+    margin: 3px;
+  }
+  .title {
+    color: #686868;
+    font-size: 18px;
+    margin: 10px 0 -10px 10px;
+  }
 }
 </style>

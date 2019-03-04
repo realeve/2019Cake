@@ -219,4 +219,7 @@ export default {
 
 <style lang="less">
 @import "~vux/src/styles/reset.less";
+#app {
+  background: #fff;
+}
 </style>
