@@ -133,7 +133,7 @@ export default {
         user_dpt: this.sport.dpt[0]
       };
       this.updateUserInfo(obj.uid, userInfo);
-      if (this.sport.name.includes("劳动慰问品")) {
+      if (this.sport.name.includes("慰问品")) {
         this.jump("paper");
       } else {
         this.jump("papercake");
