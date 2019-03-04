@@ -15,6 +15,9 @@ let isMobile = () => {
   }
 };
 
+let sportName = '2019年劳动慰问品发放调查';
+sportName = '2019年蛋糕券发放调查';
+
 const state = {
   isLoading: false,
   userInfo: {},
@@ -22,7 +25,7 @@ const state = {
   tips: '',
   sport: {
     id: 28,
-    name: '2019年劳动慰问品发放调查',
+    name: sportName,
     orgname: '成都印钞有限公司', // 机构名
     isOnline: false, //实际活动
     useDept: true,

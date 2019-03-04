@@ -155,3 +155,46 @@ export const setCbpcCakeMain = (params) =>
     url: '/161/b6fdf7f34b.json',
     params
   });
+
+/**
+ *   @database: { 微信开发 }
+ *   @desc:     { 是否参与调查 }
+ */
+export const getCbpcCakeVote = (uid) =>
+  axios({
+    url: '/164/459f55d167.json',
+    params: {
+      uid
+    }
+  });
+
+/**
+ *   @database: { 微信开发 }
+ *   @desc:     { 投票结果 }
+ */
+export const getCbpcCakeVoteList = () =>
+  axios({
+    url: '/165/e4f9d0dc86.json'
+  });
+
+/**
+*   @database: { 微信开发 }
+*   @desc:     { 蛋糕券调查 } 
+    const { uid, vote_id, remark } = params;
+*/
+export const addCbpcCakeVote = (params) =>
+  axios({
+    url: '/162/e17b1b8f9f.json',
+    params
+  });
+
+/**
+*   @database: { 微信开发 }
+*   @desc:     { 更新调查结果 } 
+    const { vote_id, remark, uid } = params;
+*/
+export const setCbpcCakeVote = (params) =>
+  axios({
+    url: '/163/62b9724f2d.json',
+    params
+  });

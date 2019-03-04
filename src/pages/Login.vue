@@ -133,21 +133,10 @@ export default {
         user_dpt: this.sport.dpt[0]
       };
       this.updateUserInfo(obj.uid, userInfo);
-      // console.log(obj);
-      if (
-        !this.sport.isOnline &&
-        parseInt(obj.answer_times) >= this.sport.maxTimes
-      ) {
-        this.toast.show = true;
-        this.toast.msg = "答题次数用完";
-        this.jump("score");
-        return;
-      }
-
-      if (this.sport.showDocument) {
-        this.jump("doc");
-      } else {
+      if (this.sport.name.includes("劳动慰问品")) {
         this.jump("paper");
+      } else {
+        this.jump("papercake");
       }
     },
     // 更新头像信息

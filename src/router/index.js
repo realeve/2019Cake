@@ -17,7 +17,13 @@ export default new Router({
       component: function(resolve) {
         require(['../pages/Paper.vue'], resolve);
       }
-    },   
+    },
+    {
+      path: '/papercake',
+      component: function(resolve) {
+        require(['../pages/Papercake.vue'], resolve);
+      }
+    },
     {
       path: '/user',
       component: function(resolve) {
