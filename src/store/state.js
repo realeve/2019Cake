@@ -22,9 +22,10 @@ const state = {
   tips: '',
   sport: {
     id: 28,
-    name: '2019年劳动慰问品发放选择',
+    name: '2019年劳动慰问品发放调查',
     orgname: '成都印钞有限公司', // 机构名
     isOnline: false, //实际活动
+    useDept: true,
     uid: 0,
     userName: '',
     cardNo: '',
