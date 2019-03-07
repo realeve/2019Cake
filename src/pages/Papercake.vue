@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="checklist">
+      <p class="tips">根据公司工会会员生日蛋糕券采购合同条款约定，现对元祖食品有限公司提供的2018年生日蛋糕进行年度评审，同意续签人数超过投票人数的50%，则继续沿用元祖食品有限公司提供2019年工会会员生日蛋糕券，请工会会员从价格、种类、口感、服务等方面对其进行评价。请投上您宝贵的一票！</p>
       <p class="title">2019年是否继续沿用元祖蛋糕？</p>
       <group>
         <radio
@@ -8,7 +9,7 @@
           v-model="answer"
         ></radio>
       </group>
-      <div v-show="answer==1">
+      <div>
         <p style="margin:10px 0 5px 5px;">请选择不满意的原因：</p>
         <checker
           v-model="reasonList"
@@ -76,13 +77,13 @@ export default {
   computed: {
     ...mapState(["sport"])
   },
-  watch: {
-    answer(val) {
-      if (val == 0) {
-        this.reasonList = [];
-      }
-    }
-  },
+  // watch: {
+  //   answer(val) {
+  //     if (val == 0) {
+  //       this.reasonList = [];
+  //     }
+  //   }
+  // },
   methods: {
     submit: async function() {
       this.submitting = true;
@@ -104,18 +105,18 @@ export default {
       this.init();
     },
     async init() {
-      let { data } = await db.getCbpcCakeVoteList();
-      if (data.length > 0) {
-        let option = this.options;
-        data.forEach(item => {
-          if (item.vote_id == 0) {
-            option[0].value = `是(${item.vote_num}人)`;
-          } else {
-            option[1].value = `否(${item.vote_num}人)`;
-          }
-        });
-        this.options = option;
-      }
+      // let { data } = await db.getCbpcCakeVoteList();
+      // if (data.length > 0) {
+      //   let option = this.options;
+      //   data.forEach(item => {
+      //     if (item.vote_id == 0) {
+      //       option[0].value = `是(${item.vote_num}人)`;
+      //     } else {
+      //       option[1].value = `否(${item.vote_num}人)`;
+      //     }
+      //   });
+      //   this.options = option;
+      // }
 
       // 是否已选择
       let res = await db.getCbpcCakeVote(this.sport.uid);
@@ -140,6 +141,10 @@ export default {
 .checklist {
   .submit {
     margin: 20px;
+  }
+  .tips {
+    padding: 10px;
+    text-indent: 2em;
   }
 
   .demo1-item-selected {
