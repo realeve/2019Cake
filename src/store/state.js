@@ -16,7 +16,7 @@ let isMobile = () => {
 };
 
 let sportName = '2019年节日慰问品发放调查';
-sportName = '2019年生日蛋糕券发放调查';
+// sportName = '2019年生日蛋糕券发放调查';
 
 const state = {
   isLoading: false,

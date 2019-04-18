@@ -7,6 +7,18 @@
           v-model="answer"
         ></radio>
       </group>
+      <div
+        v-for="item in options"
+        :key="item.id"
+        style="margin-top:30px;"
+      >
+        <p>{{item.value}}</p>
+        <img
+          :src="item.url"
+          :alt="item.value"
+          style="width:100%;margin:6px 0;"
+        >
+      </div>
       <div class="submit">
         <x-button
           :disabled="submitting||answer<0"
@@ -71,9 +83,10 @@ export default {
     },
     async init() {
       let { data } = await db.getCbpcCakeList();
-      this.options = data.map(({ id: key, cake_name: value }) => ({
+      this.options = data.map(({ id: key, cake_name: value, url }) => ({
         key,
-        value
+        value,
+        url
       }));
 
       // 是否已选择

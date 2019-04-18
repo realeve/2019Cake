@@ -198,3 +198,14 @@ export const setCbpcCakeVote = (params) =>
     url: '/163/62b9724f2d.json',
     params
   });
+
+/**
+*   @database: { 微信开发 }
+*   @desc:     { 慰问品发放登录 } 
+    const { username, usercard } = params;
+*/
+export const getCbpcCake = (params) =>
+  axios({
+    url: '/171/f9e3a3e108.json',
+    params
+  });
