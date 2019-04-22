@@ -1,6 +1,8 @@
 <template>
   <div>
     <div class="checklist">
+      <p class="tips">为进一步提高工会会员对节日慰问品福利的满意度，2019年度“五一”节日慰问品将采取A、B套餐的发放形式，每位会员须在规定的时间内任意选择A、B套餐其中之一作为节日慰问品，选择后不得更换，公司工会将根据选择数量进行备货并发放。如在规定时间内，会员没有做出选择，将依据统计结果，默认为A、B套餐已选择人数多者。</p>
+      <p class="title">套餐选择起止时间:2019年4月22日——4月23日24点。</p>
       <group title="请选择你所期望的套餐">
         <radio
           :options="options"
@@ -10,7 +12,7 @@
       <div
         v-for="item in options"
         :key="item.id"
-        style="margin-top:30px;"
+        style="margin:25px 10px;"
       >
         <p>{{item.value}}</p>
         <img
@@ -108,7 +110,18 @@ export default {
 };
 </script>
 <style scoped lang="less">
-.submit {
-  margin: 20px;
+.checklist {
+  .submit {
+    margin: 20px;
+  }
+  .tips {
+    padding: 10px;
+    text-indent: 2em;
+  }
+  .title {
+    color: #686868;
+    font-size: 18px;
+    margin: 10px 0 -10px 10px;
+  }
 }
 </style>
