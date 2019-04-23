@@ -23,10 +23,10 @@
       </div> -->
       <div class="submit">
         <x-button
-          :disabled="submitting||answer<0"
+          :disabled="isChoose||submitting||answer<0"
           type="primary"
           @click.native="submit"
-        >{{isChoose?'更新':'提交'}}</x-button>
+        >{{isChoose?'已选择':'提交'}}</x-button>
       </div>
     </div>
     <toast v-model="toast.show">{{ toast.msg }}</toast>
@@ -95,6 +95,8 @@ export default {
       let res = await db.getCbpcCakeMain(this.sport.uid);
       if (res.rows > 0) {
         this.isChoose = true;
+        let cake_id = res.data[0].cake_id;
+        this.answer = cake_id;
       }
 
       // let people_num = Math.max(data[0].people_num,data[1].people_num);
