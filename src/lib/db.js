@@ -120,8 +120,9 @@ export const setCbpcUserList = (params) =>
  */
 export const getCbpcCakeList = () =>
   axios({
-    url: '/158/f076bf2dc8.json'
+    url: '/174/4cdca1edc7.json'
   });
+
 /**
 *   @database: { 微信开发 }
 *   @desc:     { 提交选择项 } 
