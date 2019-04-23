@@ -7,6 +7,7 @@
         <radio
           :options="options"
           v-model="answer"
+          :disabled="isChoose||submitting||answer<0"
         ></radio>
       </group>
       <!-- <div
@@ -27,6 +28,13 @@
           type="primary"
           @click.native="submit"
         >{{isChoose?'已选择':'提交'}}</x-button>
+      </div>
+      <div
+        v-show="isChoose"
+        style="width:100%;text-align:center;margin-top:50px;font-size:80px;"
+      >
+        <p style="font-size:15px;">您已选择</p>
+        {{['A','B'][answer-1]}}<span style="font-size:15px;">套餐</span>
       </div>
     </div>
     <toast v-model="toast.show">{{ toast.msg }}</toast>
