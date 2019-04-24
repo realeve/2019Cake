@@ -7,7 +7,7 @@
         <radio
           :options="options"
           v-model="answer"
-          :disabled="isChoose||submitting||answer<0"
+          :disabled="isChoose||submitting"
         ></radio>
       </group>
       <!-- <div
