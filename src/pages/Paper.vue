@@ -3,7 +3,7 @@
     <div class="checklist">
       <p class="tips">公司工会为进一步提高工会会员对节日慰问品福利的满意度，2019年度端午节日慰问品将继续采取A、B套餐发放形式，请每位会员任意选择下方A、B套餐其中之一提交，选择后不得更换，公司工会将根据选择数量进行备货并发放。</p>
       <p class="tips">套餐选择起止时间:2019年5月21日——5月22日24点。</p>
-      <group title="请选择你所期望的套餐">
+      <group title="">
         <radio
           :options="options"
           v-model="answer"
