@@ -1,14 +1,13 @@
 <template>
   <div>
     <div class="checklist">
-      <p class="tips">公司工会为进一步提高工会会员对节日慰问品福利的满意度，2019年度端午节日慰问品将继续采取A、B套餐发放形式，请每位会员任意选择下方A、B套餐其中之一提交，选择后不得更换，公司工会将根据选择数量进行备货并发放。</p>
-      <p class="tips">套餐选择起止时间:2019年5月21日——5月23日12点。</p>
-      <group title="">
-        <radio
-          :options="options"
-          v-model="answer"
-          :disabled="isChoose||submitting"
-        ></radio>
+      <p
+        class="tips"
+      >2019年度中秋节日慰问品将继续采取A、B套餐发放形式，请每位会员任意选择下方A、B套餐其中之一提交，选择后不得更换，公司工会将根据选择数量进行备货并发放。在职员工请选择部门，输入卡号，内退人员请在部门栏输入“内退”。</p>
+      <p class="tips">套餐选择起止时间:2019年8月12日——13日24点。</p>
+
+      <group title>
+        <radio :options="options" v-model="answer" :disabled="isChoose||submitting"></radio>
       </group>
       <!-- <div
         v-for="item in options"
@@ -21,7 +20,7 @@
           :alt="item.value"
           style="width:100%;margin:6px 0;"
         >
-      </div> -->
+      </div>-->
       <div class="submit">
         <x-button
           :disabled="isChoose||submitting||answer<0"
@@ -29,12 +28,10 @@
           @click.native="submit"
         >{{isChoose?'已选择':'提交'}}</x-button>
       </div>
-      <div
-        v-show="isChoose"
-        style="width:100%;text-align:center;margin-top:50px;font-size:80px;"
-      >
+      <div v-show="isChoose" style="width:100%;text-align:center;margin-top:50px;font-size:80px;">
         <p style="font-size:15px;">您已选择</p>
-        {{['A','B'][answer-1]}}<span style="font-size:15px;">套餐</span>
+        {{['A','B'][answer-1]}}
+        <span style="font-size:15px;">套餐</span>
       </div>
     </div>
     <toast v-model="toast.show">{{ toast.msg }}</toast>
