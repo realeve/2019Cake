@@ -15,27 +15,26 @@ let isMobile = () => {
   }
 };
 
-let sportName = '2019年节日慰问品发放调查';
-// sportName = '2019年生日蛋糕券发放调查';
+let sportName = "2020年节日慰问品发放调查";
 
 const state = {
   isLoading: false,
   userInfo: {},
-  wxUrl: '//api.cbpc.ltd/',
-  tips: '',
+  wxUrl: "//api.cbpc.ltd/",
+  tips: "",
   sport: {
     id: 28,
     name: sportName,
-    orgname: '成都印钞有限公司', // 机构名
+    orgname: "成都印钞有限公司", // 机构名
     isOnline: false, //实际活动
     useDept: true,
     uid: 0,
-    userName: '',
-    cardNo: '',
-    dpt: ['印钞管理部'],
+    userName: "",
+    cardNo: "",
+    dpt: ["印钞管理部"],
     isLogin: false,
-    startDate: '2018-09-23',
-    endDate: '2018-09-30'
+    startDate: "2018-09-23",
+    endDate: "2018-09-30"
   }
 };
 export default state;

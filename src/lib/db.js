@@ -1,4 +1,4 @@
-import { axios } from './axios';
+import { axios } from "./axios";
 
 /**
  *   @database: { 微信开发 }
@@ -6,10 +6,10 @@ import { axios } from './axios';
  */
 export const addCommonVisitCount = async (url) =>
   await axios({
-    url: '/5/4c908bffac.json',
+    url: "/5/4c908bffac.json",
     params: {
-      url
-    }
+      url,
+    },
   }).then((res) => res);
 
 /**
@@ -18,11 +18,11 @@ export const addCommonVisitCount = async (url) =>
  */
 export const getCbpcDeptList = async (sid) =>
   await axios({
-    url: '/7/809d780efa/array.json',
+    url: "/7/809d780efa/array.json",
     params: {
       sid,
-      cache: 7200
-    }
+      cache: 7200,
+    },
   }).then((res) => res);
 
 /**
@@ -32,8 +32,8 @@ export const getCbpcDeptList = async (sid) =>
 */
 export const login = async (params) =>
   await axios({
-    url: '/8/230cba0823.json',
-    params
+    url: "/8/230cba0823.json",
+    params,
   }).then((res) => res);
 
 /**
@@ -43,8 +43,8 @@ export const login = async (params) =>
 */
 export const login2 = async (params) =>
   await axios({
-    url: '/39/836f66bd88.json',
-    params
+    url: "/39/836f66bd88.json",
+    params,
   }).then((res) => res);
 
 /**
@@ -54,8 +54,8 @@ export const login2 = async (params) =>
 */
 export const getViewCbpcUserList = async (params) =>
   await axios({
-    url: '/41/bdcb547de9.json',
-    params
+    url: "/41/bdcb547de9.json",
+    params,
   }).then((res) => res);
 
 /**
@@ -64,10 +64,10 @@ export const getViewCbpcUserList = async (params) =>
  */
 export const getCbpcDepts = async (sid) =>
   await axios({
-    url: '/42/a7290ee4fd.json',
+    url: "/42/a7290ee4fd.json",
     params: {
-      sid
-    }
+      sid,
+    },
   }).then((res) => res);
 
 /**
@@ -77,8 +77,8 @@ export const getCbpcDepts = async (sid) =>
 */
 export const updateDeptInfo = async (params) =>
   await axios({
-    url: '/43/0265840c3d.json',
-    params
+    url: "/43/0265840c3d.json",
+    params,
   }).then((res) => res);
 
 /**
@@ -88,8 +88,8 @@ export const updateDeptInfo = async (params) =>
 */
 export const updateCardInfo = async (params) =>
   await axios({
-    url: '/44/ebe393408a.json',
-    params
+    url: "/44/ebe393408a.json",
+    params,
   }).then((res) => res);
 
 /**
@@ -99,8 +99,8 @@ export const updateCardInfo = async (params) =>
 */
 export const addCbpcUserList = async (params) =>
   await axios({
-    url: '/45/7a5fa288f5.json',
-    params
+    url: "/45/7a5fa288f5.json",
+    params,
   }).then((res) => res);
 
 /**
@@ -110,8 +110,8 @@ export const addCbpcUserList = async (params) =>
 */
 export const setCbpcUserList = (params) =>
   axios({
-    url: '/15/791c1677d6.json',
-    params
+    url: "/15/791c1677d6.json",
+    params,
   });
 
 /**
@@ -120,7 +120,7 @@ export const setCbpcUserList = (params) =>
  */
 export const getCbpcCakeList = () =>
   axios({
-    url: '/174/4cdca1edc7.json'
+    url: "/174/4cdca1edc7.json",
   });
 
 /**
@@ -130,8 +130,8 @@ export const getCbpcCakeList = () =>
 */
 export const addCbpcCakeMain = (params) =>
   axios({
-    url: '/159/d37841e07f.json',
-    params
+    url: "/159/d37841e07f.json",
+    params,
   });
 
 /**
@@ -140,10 +140,10 @@ export const addCbpcCakeMain = (params) =>
  */
 export const getCbpcCakeMain = (uid) =>
   axios({
-    url: '/160/6209769039.json',
+    url: "/160/6209769039.json",
     params: {
-      uid
-    }
+      uid,
+    },
   });
 
 /**
@@ -153,8 +153,8 @@ export const getCbpcCakeMain = (uid) =>
 */
 export const setCbpcCakeMain = (params) =>
   axios({
-    url: '/161/b6fdf7f34b.json',
-    params
+    url: "/161/b6fdf7f34b.json",
+    params,
   });
 
 /**
@@ -163,10 +163,10 @@ export const setCbpcCakeMain = (params) =>
  */
 export const getCbpcCakeVote = (uid) =>
   axios({
-    url: '/164/459f55d167.json',
+    url: "/164/459f55d167.json",
     params: {
-      uid
-    }
+      uid,
+    },
   });
 
 /**
@@ -175,7 +175,7 @@ export const getCbpcCakeVote = (uid) =>
  */
 export const getCbpcCakeVoteList = () =>
   axios({
-    url: '/165/e4f9d0dc86.json'
+    url: "/165/e4f9d0dc86.json",
   });
 
 /**
@@ -185,8 +185,8 @@ export const getCbpcCakeVoteList = () =>
 */
 export const addCbpcCakeVote = (params) =>
   axios({
-    url: '/162/e17b1b8f9f.json',
-    params
+    url: "/162/e17b1b8f9f.json",
+    params,
   });
 
 /**
@@ -196,8 +196,8 @@ export const addCbpcCakeVote = (params) =>
 */
 export const setCbpcCakeVote = (params) =>
   axios({
-    url: '/163/62b9724f2d.json',
-    params
+    url: "/163/62b9724f2d.json",
+    params,
   });
 
 /**
@@ -207,6 +207,33 @@ export const setCbpcCakeVote = (params) =>
 */
 export const getCbpcCake = (params) =>
   axios({
-    url: '/171/f9e3a3e108.json',
-    params
+    url: "/171/f9e3a3e108.json",
+    params,
+  });
+
+/**
+ *   @database: { 微信开发 }
+ *   @desc:     { 员工慰问品 }
+ */
+export const getCbpcCakeDesc = () =>
+  axios({
+    url: "/295/4a8a11fe20.json",
+  }).then((res) => res.data[0].title);
+
+/**
+ *   @database: { 微信开发 }
+ *   @desc:     { 已经选择的列表 }
+ */
+export const getViewCbpcCakelist = () =>
+  axios({
+    url: "/326/b7e5018f73.array",
+  });
+
+/**
+ *   @database: { 微信开发 }
+ *   @desc:     { 选择数量汇总 }
+ */
+export const getViewCbpcCakelistCount = () =>
+  axios({
+    url: "/327/55c5d3e0d8.array",
   });

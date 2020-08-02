@@ -1,37 +1,42 @@
 <template>
   <div>
     <div class="checklist">
-      <p
-        class="tips"
-      >2019年度中秋节日慰问品将继续采取A、B套餐发放形式，请每位会员任意选择下方A、B套餐其中之一提交，选择后不得更换，公司工会将根据选择数量进行备货并发放。在职员工请选择部门，输入卡号，内退人员请在部门栏输入“内退”。</p>
-      <p class="tips">套餐选择起止时间:2019年8月12日——13日24点。</p>
+      <p class="tips" v-html="title" />
 
       <group title>
-        <radio :options="options" v-model="answer" :disabled="isChoose||submitting"></radio>
+        <radio
+          :options="options"
+          v-model="answer"
+          :disabled="isChoose || submitting"
+        ></radio>
       </group>
-      <!-- <div
-        v-for="item in options"
-        :key="item.id"
-        style="margin:25px 10px;"
-      >
-        <p>{{item.value}}</p>
-        <img
-          :src="item.url"
-          :alt="item.value"
-          style="width:100%;margin:6px 0;"
-        >
-      </div>-->
       <div class="submit">
         <x-button
-          :disabled="isChoose||submitting||answer<0"
+          :disabled="isChoose || submitting || answer < 0"
           type="primary"
           @click.native="submit"
-        >{{isChoose?'已选择':'提交'}}</x-button>
+          >{{ isChoose ? "已选择" : "提交" }}</x-button
+        >
+
+        <x-button
+          v-if="['李宾', '黄夏玢'].includes(sport.userName)"
+          @click.native="jump"
+        >
+          查看选择结果
+        </x-button>
       </div>
-      <div v-show="isChoose" style="width:100%;text-align:center;margin-top:50px;font-size:80px;">
-        <p style="font-size:15px;">您已选择</p>
-        {{['A','B'][answer-1]}}
-        <span style="font-size:15px;">套餐</span>
+      <div
+        v-show="isChoose"
+        style="
+          width: 100%;
+          text-align: center;
+          margin-top: 50px;
+          font-size: 80px;
+        "
+      >
+        <p style="font-size: 15px;">您已选择</p>
+        {{ ["A", "B"][answer - 1] }}
+        <span style="font-size: 15px;">套餐</span>
       </div>
     </div>
     <toast v-model="toast.show">{{ toast.msg }}</toast>
@@ -52,32 +57,33 @@ export default {
     Radio,
     Toast,
     XButton,
-    Checklist
+    Checklist,
   },
   data() {
     return {
       toast: {
         show: false,
-        msg: ""
+        msg: "",
       },
       options: [],
       answer: -1,
       isChoose: false,
-      submitting: false
+      submitting: false,
+      title: "",
     };
   },
   computed: {
-    ...mapState(["sport"])
+    ...mapState(["sport"]),
   },
   methods: {
-    submit: async function() {
+    submit: async function () {
       this.submitting = true;
       let method = this.isChoose ? "setCbpcCakeMain" : "addCbpcCakeMain";
       let {
-        data: [{ affected_rows }]
+        data: [{ affected_rows }],
       } = await db[method]({
         uid: this.sport.uid,
-        cake_id: this.answer
+        cake_id: this.answer,
       });
       if (affected_rows > 0) {
         this.toast = { show: true, msg: "提交成功" };
@@ -89,11 +95,14 @@ export default {
       this.init();
     },
     async init() {
+      db.getCbpcCakeDesc().then((title) => {
+        this.title = title;
+      });
       let { data } = await db.getCbpcCakeList();
       this.options = data.map(({ id: key, cake_name: value, url }) => ({
         key,
         value,
-        url
+        url,
       }));
 
       // 是否已选择
@@ -105,15 +114,19 @@ export default {
       }
 
       // let people_num = Math.max(data[0].people_num,data[1].people_num);
-    }
+    },
+    jump() {
+      this.$router.push("score");
+    },
   },
   mounted() {
     if (!this.sport.isLogin) {
       this.$router.push("/");
       return;
     }
+    console.log(this.sport);
     this.init();
-  }
+  },
 };
 </script>
 <style scoped lang="less">
