@@ -25,6 +25,12 @@ export default new Router({
       },
     },
     {
+      path: "/pay",
+      component: function (resolve) {
+        require(["../pages/Pay.vue"], resolve);
+      },
+    },
+    {
       path: "/user",
       component: function (resolve) {
         require(["../pages/UserInfo.vue"], resolve);

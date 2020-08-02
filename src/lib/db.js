@@ -237,3 +237,43 @@ export const getViewCbpcCakelistCount = () =>
   axios({
     url: "/327/55c5d3e0d8.array",
   });
+
+/**
+ *   @database: { 微信开发 }
+ *   @desc:     { 劳保鞋发放 }
+ */
+export const getCbpcCake2020 = (card) =>
+  axios({
+    url: "/339/4df8945926.json",
+    params: {
+      card,
+    },
+  });
+
+/**
+ *   @database: { 微信开发 }
+ *   @desc:     { 选择情况汇总 }
+ */
+export const getCbpcCake2020Choice = () =>
+  axios({
+    url: "/340/2c06f98d9f.json",
+  });
+
+/**
+ *   @database: { 微信开发 }
+ *   @desc:     { 领取货品 }
+ */
+export const setCbpcCake2020 = (params) =>
+  axios({
+    url: "/341/1c4a85feba.json",
+    params,
+  });
+
+/**
+ *   @database: { 微信开发 }
+ *   @desc:     { 未领取人员名单 }
+ */
+export const getCbpcCake2020Unchoise = () =>
+  axios({
+    url: "/342/2dd10a4fd9.array",
+  });
