@@ -48,7 +48,7 @@
             :class="{red:item.receive_time}"
           >领取卡号：{{item.proxy}}</div>
           <x-button
-            v-show="list.length>1"
+            v-show="isproxy || list.length>1 "
             type="primary"
             @click.native="receive(item.id)"
             style="margin:10px 0;"
@@ -139,7 +139,7 @@ export default {
         if (data[0].proxy && data[0].proxy.length > 0) {
           return;
         }
-        this.receive(data[0].id);
+       !this.isproxy && this.receive(data[0].id);
       }
     },
     loadResult: async function () {
