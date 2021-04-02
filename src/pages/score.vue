@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="checklist" style="margin: 30px auto; width: 400px;">
+    <div class="checklist" style="margin: 30px auto; width: 400px">
       <p class="title">工会节日慰问品选择列表</p>
-      <ul style="margin: 20px;">
+      <ul style="margin: 20px">
         <li v-for="item in list" :key="item[0]">
           {{ item[0] }}: {{ item[1] }}人
         </li>
@@ -20,7 +20,6 @@
 import { Toast, XButton, Group, Radio, Checker, CheckerItem } from "vux";
 
 import { mapState } from "vuex";
-import util from "../lib/common";
 import moment from "moment";
 import * as db from "../lib/db";
 import Excel from "../lib/excel";

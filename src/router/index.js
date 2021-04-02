@@ -36,5 +36,11 @@ export default new Router({
         require(["../pages/UserInfo.vue"], resolve);
       },
     },
+    {
+      path: "/end",
+      component: function (resolve) {
+        require(["../pages/end.vue"], resolve);
+      },
+    },
   ],
 });

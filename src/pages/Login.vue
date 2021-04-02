@@ -14,16 +14,13 @@
         name="usercard"
         v-model="sport.cardNo"
         placeholder="输入卡号,内退人员请输入内退"
-        keyboard="number"
+        type="text"
       ></x-input>
 
       <div class="btn">
-        <x-button
-          :disabled="!shouldCommit"
-          type="primary"
-          @click.native="login"
-        >登录</x-button>
-
+        <x-button :disabled="!shouldCommit" type="primary" @click.native="login"
+          >登录</x-button
+        >
       </div>
     </group>
     <toast v-model="toast.show">{{ toast.msg }}</toast>
@@ -42,14 +39,15 @@ export default {
     XInput,
     Group,
     Toast,
-    GroupTitle
+    GroupTitle,
   },
   data() {
     return {
       toast: {
         show: false,
-        msg: ""
-      }
+        msg: "",
+        valid: true,
+      },
     };
   },
   computed: {
@@ -63,8 +61,8 @@ export default {
       },
       set(val) {
         this.$store.commit("setSport", val);
-      }
-    }
+      },
+    },
   },
   methods: {
     jump(router) {
@@ -78,20 +76,20 @@ export default {
       userInfo = JSON.parse(userInfo);
       this.sport = {
         userName: userInfo.user_name,
-        cardNo: userInfo.user_id
+        cardNo: userInfo.user_id,
       };
     },
-    login: async function() {
+    login: async function () {
       let params = {
         usercard: this.sport.cardNo,
-        username: this.sport.userName
+        username: this.sport.userName,
       };
 
       localStorage.setItem(
         "userInfo",
         JSON.stringify({
           user_name: params.username,
-          user_id: params.usercard
+          user_id: params.usercard,
         })
       );
 
@@ -112,12 +110,18 @@ export default {
       } else {
         this.jump("papercake");
       }
-    }
+    },
   },
   mounted() {
     document.title = "登录";
     this.loadUserInfo();
-  }
+
+    db.getCbpcCakeDesc().then((res) => {
+      if (res.is_end == 1) {
+        this.jump("end");
+      }
+    });
+  },
 };
 </script>
 <style lang="less" scoped>

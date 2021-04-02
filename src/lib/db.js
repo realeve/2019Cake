@@ -218,7 +218,7 @@ export const getCbpcCake = (params) =>
 export const getCbpcCakeDesc = () =>
   axios({
     url: "/295/4a8a11fe20.json",
-  }).then((res) => res.data[0].title);
+  }).then((res) => res.data[0]);
 
 /**
  *   @database: { 微信开发 }

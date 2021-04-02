@@ -15,7 +15,8 @@ let isMobile = () => {
   }
 };
 
-let sportName = "2020年节日慰问品发放调查";
+let year = new Date().getFullYear();
+let sportName = `${year}年节日慰问品发放调查`;
 
 const state = {
   isLoading: false,
@@ -34,7 +35,7 @@ const state = {
     dpt: ["印钞管理部"],
     isLogin: false,
     startDate: "2018-09-23",
-    endDate: "2018-09-30"
-  }
+    endDate: "2018-09-30",
+  },
 };
 export default state;

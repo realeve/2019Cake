@@ -34,9 +34,9 @@
           font-size: 80px;
         "
       >
-        <p style="font-size: 15px;">您已选择</p>
+        <p style="font-size: 15px">您已选择</p>
         {{ ["A", "B"][answer - 1] }}
-        <span style="font-size: 15px;">套餐</span>
+        <span style="font-size: 15px">套餐</span>
       </div>
     </div>
     <toast v-model="toast.show">{{ toast.msg }}</toast>
@@ -95,8 +95,11 @@ export default {
       this.init();
     },
     async init() {
-      db.getCbpcCakeDesc().then((title) => {
-        this.title = title;
+      db.getCbpcCakeDesc().then((res) => {
+        this.title = res.title;
+        if (res.is_end == 1) {
+          this.jump("end");
+        }
       });
       let { data } = await db.getCbpcCakeList();
       this.options = data.map(({ id: key, cake_name: value, url }) => ({
